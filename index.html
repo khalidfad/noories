@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noories Essentials | Premium Crunchy Kuli Kuli Snacks</title>
+<meta name="title" content="Noories Essentials | Premium Crunchy Kuli Kuli Snacks">
+<meta name="description" content="Freshly extracted, 100% organic Nigerian Kuli Kuli. High-protein, crunchy, and keto-friendly peanut snacks delivered from Lagos to your doorstep.">
+<meta name="keywords" content="Kuli Kuli, Nigerian snacks, healthy snacks Lagos, organic peanut snacks, Noories Essentials, high protein snacks Nigeria, buy kuli kuli online">
+<meta name="author" content="Noories Essentials">
+    <title>Noories Essentials | Premium Kuli Kuli</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #5d3a1a;    /* Deep Peanut Brown */
+            --secondary: #1b4332;  /* Dark Organic Green */
+            --accent: #e6b800;     /* Kuli Kuli Gold */
+            --bg: #fffdf5;         /* Soft Cream */
+            --white: #ffffff;
+            --shadow: 0 10px 30px -10px rgba(93, 58, 26, 0.15);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg); color: var(--primary); line-height: 1.6; }
+
+        /* Navigation */
+        nav {
+            position: sticky; top: 0; background: rgba(255, 253, 245, 0.85);
+            backdrop-filter: blur(12px); padding: 15px 20px; z-index: 1000;
+            display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 1px solid rgba(93, 58, 26, 0.05);
+        }
+        .nav-logo { font-weight: 800; font-size: 1.2rem; color: var(--secondary); cursor: pointer; }
+        .back-btn { background: var(--primary); color: white; border: none; padding: 6px 15px; border-radius: 50px; font-size: 0.8rem; display: none; cursor: pointer; }
+
+        .container { max-width: 480px; margin: 0 auto; padding: 20px 20px 120px; }
+
+        /* Page Handling */
+        .page { display: none; animation: fadeIn 0.4s ease-out forwards; }
+        .page.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* UI Components */
+        .profile-card { text-align: center; margin-bottom: 30px; }
+        .logo-box { width: 85px; height: 85px; background: white; border-radius: 30%; margin: 0 auto 15px; padding: 15px; shadow: var(--shadow); border: 2px solid #f2eedf; }
+        .tagline { font-size: 0.9rem; opacity: 0.8; }
+        .tagline em { font-family: 'Playfair Display', serif; color: var(--secondary); }
+
+        .hero-img-box { position: relative; border-radius: 28px; overflow: hidden; margin-bottom: 25px; box-shadow: var(--shadow); }
+        .hero-img-box img { width: 100%; display: block; }
+        .badge { position: absolute; top: 15px; right: 15px; background: var(--accent); color: var(--primary); font-size: 0.65rem; font-weight: 800; padding: 5px 12px; border-radius: 50px; text-transform: uppercase; }
+
+        /* Buttons & Links */
+        .link-list { display: flex; flex-direction: column; gap: 12px; }
+        .btn { 
+            background: var(--white); text-decoration: none; color: inherit; padding: 18px; 
+            border-radius: 20px; display: flex; align-items: center; border: 1px solid rgba(0,0,0,0.04);
+            box-shadow: 0 4px 10px rgba(93, 58, 26, 0.05); font-weight: 600; cursor: pointer; transition: 0.2s;
+        }
+        .btn:active { transform: scale(0.98); }
+        .btn-primary { background: var(--secondary); color: white; }
+        .btn i { margin-right: 15px; font-style: normal; font-size: 1.2rem; }
+
+        /* Shop Grid */
+        .shop-item { background: white; padding: 15px; border-radius: 24px; margin-bottom: 15px; display: flex; gap: 15px; align-items: center; box-shadow: var(--shadow); }
+        .item-thumb { width: 90px; height: 90px; background: #fdfaf0; border-radius: 18px; display: flex; align-items: center; justify-content: center; font-size: 2rem; }
+        .item-info h3 { font-size: 1rem; margin-bottom: 2px; }
+        .item-info p { font-size: 0.75rem; opacity: 0.6; margin-bottom: 8px; }
+        .item-price { font-weight: 800; font-size: 1.1rem; color: var(--secondary); display: block; margin-bottom: 8px; }
+        .buy-now { background: var(--accent); color: var(--primary); text-decoration: none; padding: 6px 15px; border-radius: 10px; font-size: 0.75rem; font-weight: 800; }
+
+        /* Health & Reviews */
+        .card { background: white; padding: 20px; border-radius: 24px; margin-bottom: 15px; box-shadow: var(--shadow); border: 1px solid rgba(0,0,0,0.02); }
+        .card h4 { margin-bottom: 5px; display: flex; align-items: center; gap: 10px; }
+        .stars { color: #ffcc00; font-size: 0.8rem; margin-bottom: 5px; display: block; }
+
+        /* Sticky CTA */
+        .footer-cta { position: fixed; bottom: 25px; left: 0; right: 0; padding: 0 25px; z-index: 100; }
+        .main-cta { background: var(--primary); color: white; text-align: center; padding: 18px; border-radius: 20px; font-weight: 800; text-decoration: none; box-shadow: 0 15px 35px rgba(93, 58, 26, 0.3); display: block; }
+
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-logo" onclick="goTo('home')">Noories.</div>
+        <button id="backBtn" class="back-btn" onclick="goTo('home')">← Back</button>
+    </nav>
+
+    <div class="container">
+        
+        <section id="home" class="page active">
+            <div class="profile-card">
+                <div class="logo-box"><img src="logo.png" alt="Logo" style="width:100%"></div>
+                <h1>Noories Essentials</h1>
+                <p class="tagline">Crunchy. Nutty. <em>Pure Energy.</em></p>
+            </div>
+
+            <div class="hero-img-box">
+                <img src="kuli-kuli-pack.jpg" alt="Featured Pack">
+                <div class="badge">Lagos Best Kuli Kuli</div>
+            </div>
+
+            <div class="link-list">
+                <a href="https://wa.me/234XXXXXXXXXX" class="btn btn-primary"><i>📱</i> Order via WhatsApp</a>
+                <div class="btn" onclick="goTo('shop')"><i>🛍️</i> Shop Sizes & Prices</div>
+                <div class="btn" onclick="goTo('health')"><i>💪</i> Health Benefits</div>
+                <div class="btn" onclick="goTo('reviews')"><i>⭐</i> Customer Reviews</div>
+                <div class="btn" onclick="goTo('about')"><i>🌍</i> Our Story</div>
+            </div>
+        </section>
+
+        <section id="shop" class="page">
+            <h2 style="margin-bottom:20px">Choose Your Size</h2>
+            <div class="shop-item">
+                <div class="item-thumb">🥜</div>
+                <div class="item-info">
+                    <h3>The Snack Pack</h3>
+                    <p>150g - Handy for your bag.</p>
+                    <span class="item-price">₦1,000</span>
+                    <a href="https://wa.me/234XXXXXXXXXX?text=I%20want%20the%20Snack%20Pack" class="buy-now">Add to Order</a>
+                </div>
+            </div>
+            <div class="shop-item">
+                <div class="item-thumb">👜</div>
+                <div class="item-info">
+                    <h3>The Family Pouch</h3>
+                    <p>500g - Reusable zip-lock pack.</p>
+                    <span class="item-price">₦3,000</span>
+                    <a href="https://wa.me/234XXXXXXXXXX?text=I%20want%20the%20Family%20Pouch" class="buy-now">Add to Order</a>
+                </div>
+            </div>
+            <div class="shop-item">
+                <div class="item-thumb">📦</div>
+                <div class="item-info">
+                    <h3>Bulk Wholesale</h3>
+                    <p>5kg Carton - Best for events.</p>
+                    <span class="item-price">₦25,000</span>
+                    <a href="https://wa.me/234XXXXXXXXXX?text=I%20want%20to%20buy%20Bulk" class="buy-now">Inquire Now</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="health" class="page">
+            <h2 style="margin-bottom:20px">Why Noories?</h2>
+            <div class="card">
+                <h4><i>🥩</i> High Protein</h4>
+                <p>Kuli Kuli is a concentrated source of peanut protein, perfect for post-workout or energy dips.</p>
+            </div>
+            <div class="card">
+                <h4><i>🌿</i> 100% Natural</h4>
+                <p>We use zero artificial preservatives. Just peanuts, spices, and tradition.</p>
+            </div>
+            <div class="card">
+                <h4><i>🔥</i> Freshly Extracted</h4>
+                <p>Unlike store-bought brands, Noories is made weekly to ensure maximum crunch.</p>
+            </div>
+        </section>
+
+        <section id="reviews" class="page">
+            <h2 style="margin-bottom:20px">Real Feedback</h2>
+            <div class="card">
+                <span class="stars">★★★★★</span>
+                <h4>Fola A.</h4>
+                <p>"The crunch is unreal. Usually, kuli kuli is too hard, but this is just right."</p>
+            </div>
+            <div class="card">
+                <span class="stars">★★★★★</span>
+                <h4>Chidi O.</h4>
+                <p>"The packaging is so clean. Finally, a snack I can take to the office!"</p>
+            </div>
+        </section>
+
+        <section id="about" class="page">
+            <h2 style="margin-bottom:20px">Our Story</h2>
+            <div class="card">
+                <p>Noories Essentials was founded on the belief that traditional snacks should be both hygienic and premium. Based in Lagos, we source our peanuts directly from local farmers to ensure the best quality "Freshly Extracted" snacks.</p>
+                <br>
+                <p>Every bag of Noories supports a network of local producers and keeps the art of kuli kuli making alive.</p>
+            </div>
+        </section>
+
+    </div>
+
+    <div class="footer-cta">
+        <a href="https://wa.me/234XXXXXXXXXX" class="main-cta">WHATSAPP ORDER NOW</a>
+    </div>
+
+    <script>
+        function goTo(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            // Show new page
+            document.getElementById(pageId).classList.add('active');
+            
+            // Toggle Back Button
+            const backBtn = document.getElementById('backBtn');
+            backBtn.style.display = (pageId === 'home') ? 'none' : 'block';
+            
+            // Scroll to top
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+    </script>
+</body>
+</html>
