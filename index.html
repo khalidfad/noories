@@ -312,6 +312,14 @@
         font-size: 1rem;
         letter-spacing: 0.5px;
     }
+    .item-thumb {
+    width: 90px;
+    height: 90px;
+    flex-shrink: 0; /* Prevents the image box from squishing on small screens */
+    overflow: hidden;
+    background: #f7f2e8;
+    border: 1px solid rgba(0, 74, 38, 0.1);
+}
 
     .hidden { display: none; }
 </style>
@@ -346,36 +354,45 @@
             </div>
         </section>
 
-        <section id="shop" class="page">
-            <h2 style="margin-bottom:20px">Choose Your Size</h2>
-            <div class="shop-item">
-                <div class="item-thumb"><img src="images/ku1.jpeg" width="100"> </div>
-                <div class="item-info">
-                    <h3>The Snack Pack</h3>
-                    <p>150g - Handy for your bag.</p>
-                    <span class="item-price">₦1,000</span>
-                    <a href="https://wa.me/2349152630473?text=I%20want%20the%20Snack%20Pack" class="buy-now">Add to Order</a>
-                </div>
-            </div>
-            <div class="shop-item">
-                <div class="item-thumb"><img src="images/ku2.jpeg" width="100"></div>
-                <div class="item-info">
-                    <h3>The Family Pouch</h3>
-                    <p>500g - Reusable zip-lock pack.</p>
-                    <span class="item-price">₦3,000</span>
-                    <a href="https://wa.me/2349152630473?text=I%20want%20the%20Family%20Pouch" class="buy-now">Add to Order</a>
-                </div>
-            </div>
-            <div class="shop-item">
-                <div class="item-thumb"><img src="images/ku1.jpeg" width="100"></div>
-                <div class="item-info">
-                    <h3>Bulk Wholesale</h3>
-                    <p>5kg Carton - Best for events.</p>
-                    <span class="item-price">₦25,000</span>
-                    <a href="https://wa.me/2349152630473?text=I%20want%20to%20buy%20Bulk" class="buy-now">Inquire Now</a>
-                </div>
-            </div>
-        </section>
+       <section id="shop" class="page">
+    <h2 style="margin-bottom:20px; font-weight: 800; color: var(--secondary);">The Crisps Collection</h2>
+    
+    <div class="shop-item">
+        <div class="item-thumb">
+            <img src="images/ku1.jpeg" alt="Noories Snack Pack" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
+        </div>
+        <div class="item-info">
+            <h3>Kuli Kuli Crisps (Snack Pack)</h3>
+            <p>150g — The perfect desk companion. Light, crunchy, and mess-free.</p>
+            <span class="item-price">₦1,000</span>
+            <a href="https://wa.me/2349152630473?text=I%20want%20the%20Kuli%20Kuli%20Crisps%20Snack%20Pack" class="buy-now">Add to Order</a>
+        </div>
+    </div>
+
+    <div class="shop-item">
+        <div class="item-thumb">
+            <img src="images/ku2.jpeg" alt="Noories Family Pouch" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
+        </div>
+        <div class="item-info">
+            <h3>Kuli Kuli Crisps (Family Pouch)</h3>
+            <p>500g — Our signature zip-lock pouch to keep that "fresh-from-the-fire" snap.</p>
+            <span class="item-price">₦3,000</span>
+            <a href="https://wa.me/2349152630473?text=I%20want%20the%20Kuli%20Kuli%20Crisps%20Family%20Pouch" class="buy-now">Add to Order</a>
+        </div>
+    </div>
+
+    <div class="shop-item">
+        <div class="item-thumb">
+            <img src="images/ku1.jpeg" alt="Noories Bulk Carton" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
+        </div>
+        <div class="item-info">
+            <h3>Kuli Kuli Crisps (Wholesale)</h3>
+            <p>5kg Carton — Freshly made to order for vendors, parties, and gifting.</p>
+            <span class="item-price">₦25,000</span>
+            <a href="https://wa.me/2349152630473?text=I%20want%20to%20inquire%20about%20Bulk%20Kuli%20Kuli%20Crisps" class="buy-now">Inquire Now</a>
+        </div>
+    </div>
+</section>
 
         <section id="health" class="page">
             <h2 style="margin-bottom:20px">Why Noories?</h2>
