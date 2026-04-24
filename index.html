@@ -11,76 +11,310 @@
     <title>Noories Essentials | Premium Kuli Kuli</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary: #5d3a1a;    /* Deep Peanut Brown */
-            --secondary: #1b4332;  /* Dark Organic Green */
-            --accent: #e6b800;     /* Kuli Kuli Gold */
-            --bg: #fffdf5;         /* Soft Cream */
-            --white: #ffffff;
-            --shadow: 0 10px 30px -10px rgba(93, 58, 26, 0.15);
-        }
+    :root {
+        /* Exact Brand Colors from Logo */
+        --primary: #4a2c1a;    /* Richer Roasted Peanut Brown */
+        --secondary: #004a26;  /* Deep Forest Green from 'Noories' text */
+        --accent: #f7d117;     /* Bright Kuli Kuli Gold from logo circles */
+        
+        /* Layout Colors */
+        --bg: #fffdf5;         /* Soft Cream */
+        --white: #ffffff;
+        --shadow: 0 10px 30px -10px rgba(74, 44, 26, 0.15);
+    }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg); color: var(--primary); line-height: 1.6; }
+    * { 
+        margin: 0; 
+        padding: 0; 
+        box-sizing: border-box; 
+        -webkit-tap-highlight-color: transparent; 
+    }
 
-        /* Navigation */
-        nav {
-            position: sticky; top: 0; background: rgba(255, 253, 245, 0.85);
-            backdrop-filter: blur(12px); padding: 15px 20px; z-index: 1000;
-            display: flex; justify-content: space-between; align-items: center;
-            border-bottom: 1px solid rgba(93, 58, 26, 0.05);
-        }
-        .nav-logo { font-weight: 800; font-size: 1.2rem; color: var(--secondary); cursor: pointer; }
-        .nav-logo img{width: 150px;}
-        .back-btn { background: var(--primary); color: white; border: none; padding: 6px 15px; border-radius: 50px; font-size: 0.8rem; display: none; cursor: pointer; }
+    body { 
+        font-family: 'Plus Jakarta Sans', sans-serif; 
+        background-color: var(--bg); 
+        color: var(--primary); 
+        line-height: 1.6; 
+    }
 
-        .container { max-width: 480px; margin: 0 auto; padding: 20px 20px 120px; }
+    /* Navigation */
+    nav {
+        position: sticky; 
+        top: 0; 
+        background: rgba(255, 253, 245, 0.85);
+        backdrop-filter: blur(12px); 
+        padding: 15px 20px; 
+        z-index: 1000;
+        display: flex; 
+        justify-content: space-between; 
+        align-items: center;
+        border-bottom: 1px solid rgba(0, 74, 38, 0.08); /* Faint brand green border */
+    }
 
-        /* Page Handling */
-        .page { display: none; animation: fadeIn 0.4s ease-out forwards; }
-        .page.active { display: block; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    .nav-logo { 
+        cursor: pointer; 
+        display: flex;
+        align-items: center;
+    }
 
-        /* UI Components */
-        .profile-card { text-align: center; margin-bottom: 30px; }
-        .logo-box { width: 85px; height: 85px; background: white; border-radius: 30%; margin: 0 auto 15px; padding: 15px; shadow: var(--shadow); border: 2px solid #f2eedf; }
-        .tagline { font-size: 0.9rem; opacity: 0.8; }
-        .tagline em { font-family: 'Playfair Display', serif; color: var(--secondary); }
+    /* Set the logo size properly */
+    .nav-logo img { 
+        width: 120px; 
+        height: auto;
+        object-fit: contain;
+    }
 
-        .hero-img-box { position: relative; border-radius: 28px; overflow: hidden; margin-bottom: 25px; box-shadow: var(--shadow); }
-        .hero-img-box img { width: 100%; display: block; }
-        .badge { position: absolute; top: 15px; right: 15px; background: var(--accent); color: var(--primary); font-size: 0.65rem; font-weight: 800; padding: 5px 12px; border-radius: 50px; text-transform: uppercase; }
+    .back-btn { 
+        background: var(--secondary); 
+        color: white; 
+        border: none; 
+        padding: 8px 16px; 
+        border-radius: 50px; 
+        font-size: 0.8rem; 
+        font-weight: 600;
+        display: none; 
+        cursor: pointer;
+        transition: transform 0.2s;
+    }
 
-        /* Buttons & Links */
-        .link-list { display: flex; flex-direction: column; gap: 12px; }
-        .btn { 
-            background: var(--white); text-decoration: none; color: inherit; padding: 18px; 
-            border-radius: 20px; display: flex; align-items: center; border: 1px solid rgba(0,0,0,0.04);
-            box-shadow: 0 4px 10px rgba(93, 58, 26, 0.05); font-weight: 600; cursor: pointer; transition: 0.2s;
-        }
-        .btn:active { transform: scale(0.98); }
-        .btn-primary { background: var(--secondary); color: white; }
-        .btn i { margin-right: 15px; font-style: normal; font-size: 1.2rem; }
+    .back-btn:active {
+        transform: scale(0.95);
+    }
 
-        /* Shop Grid */
-        .shop-item { background: white; padding: 15px; border-radius: 24px; margin-bottom: 15px; display: flex; gap: 15px; align-items: center; box-shadow: var(--shadow); }
-        .item-thumb { width: 90px; height: 90px; background: #fdfaf0; border-radius: 18px; display: flex; align-items: center; justify-content: center; font-size: 2rem; }
-        .item-info h3 { font-size: 1rem; margin-bottom: 2px; }
-        .item-info p { font-size: 0.75rem; opacity: 0.6; margin-bottom: 8px; }
-        .item-price { font-weight: 800; font-size: 1.1rem; color: var(--secondary); display: block; margin-bottom: 8px; }
-        .buy-now { background: var(--accent); color: var(--primary); text-decoration: none; padding: 6px 15px; border-radius: 10px; font-size: 0.75rem; font-weight: 800; }
+    .container { 
+        max-width: 480px; 
+        margin: 0 auto; 
+        padding: 20px 20px 120px; 
+    }
 
-        /* Health & Reviews */
-        .card { background: white; padding: 20px; border-radius: 24px; margin-bottom: 15px; box-shadow: var(--shadow); border: 1px solid rgba(0,0,0,0.02); }
-        .card h4 { margin-bottom: 5px; display: flex; align-items: center; gap: 10px; }
-        .stars { color: #ffcc00; font-size: 0.8rem; margin-bottom: 5px; display: block; }
+    /* Page Handling */
+    .page { 
+        display: none; 
+        animation: fadeIn 0.4s ease-out forwards; 
+    }
 
-        /* Sticky CTA */
-        .footer-cta { position: fixed; bottom: 25px; left: 0; right: 0; padding: 0 25px; z-index: 100; }
-        .main-cta { background: var(--primary); color: white; text-align: center; padding: 18px; border-radius: 20px; font-weight: 800; text-decoration: none; box-shadow: 0 15px 35px rgba(93, 58, 26, 0.3); display: block; }
+    .page.active { 
+        display: block; 
+    }
 
-        .hidden { display: none; }
-    </style>
+    @keyframes fadeIn { 
+        from { opacity: 0; transform: translateY(10px); } 
+        to { opacity: 1; transform: translateY(0); } 
+    }
+
+    /* UI Components */
+    .profile-card { 
+        text-align: center; 
+        margin-bottom: 30px; 
+    }
+
+    .logo-box { 
+        width: 100px; 
+        height: 100px; 
+        background: white; 
+        border-radius: 24px; 
+        margin: 0 auto 15px; 
+        padding: 12px; 
+        box-shadow: var(--shadow); 
+        border: 1px solid rgba(0, 74, 38, 0.1); 
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .tagline { 
+        font-size: 0.95rem; 
+        font-weight: 500;
+        opacity: 0.9; 
+    }
+
+    .tagline em { 
+        font-family: 'Playfair Display', serif; 
+        color: var(--secondary); 
+        font-weight: 700;
+    }
+
+    .hero-img-box { 
+        position: relative; 
+        border-radius: 28px; 
+        overflow: hidden; 
+        margin-bottom: 25px; 
+        box-shadow: var(--shadow); 
+        border: 4px solid white;
+    }
+
+    .hero-img-box img { 
+        width: 100%; 
+        display: block; 
+    }
+
+    .badge { 
+        position: absolute; 
+        top: 15px; 
+        right: 15px; 
+        background: var(--accent); 
+        color: var(--secondary); 
+        font-size: 0.7rem; 
+        font-weight: 800; 
+        padding: 6px 14px; 
+        border-radius: 50px; 
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    /* Buttons & Links */
+    .link-list { 
+        display: flex; 
+        flex-direction: column; 
+        gap: 14px; 
+    }
+
+    .btn { 
+        background: var(--white); 
+        text-decoration: none; 
+        color: inherit; 
+        padding: 20px; 
+        border-radius: 22px; 
+        display: flex; 
+        align-items: center; 
+        border: 1px solid rgba(0, 74, 38, 0.05);
+        box-shadow: 0 4px 15px rgba(74, 44, 26, 0.04); 
+        font-weight: 700; 
+        cursor: pointer; 
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+    }
+
+    .btn:active { 
+        transform: scale(0.96); 
+        background: #fafaf8;
+    }
+
+    .btn-primary { 
+        background: var(--secondary); 
+        color: white; 
+        border: none;
+        box-shadow: 0 8px 20px rgba(0, 74, 38, 0.2);
+    }
+
+    .btn i { 
+        margin-right: 18px; 
+        font-style: normal; 
+        font-size: 1.4rem; 
+    }
+
+    /* Shop Grid */
+    .shop-item { 
+        background: white; 
+        padding: 16px; 
+        border-radius: 24px; 
+        margin-bottom: 16px; 
+        display: flex; 
+        gap: 18px; 
+        align-items: center; 
+        box-shadow: var(--shadow); 
+    }
+
+    .item-thumb { 
+        width: 85px; 
+        height: 85px; 
+        background: var(--bg); 
+        border-radius: 18px; 
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        font-size: 2.2rem; 
+    }
+
+    .item-info h3 { 
+        font-size: 1.05rem; 
+        margin-bottom: 3px; 
+        color: var(--secondary);
+    }
+
+    .item-info p { 
+        font-size: 0.8rem; 
+        opacity: 0.7; 
+        margin-bottom: 10px; 
+    }
+
+    .item-price { 
+        font-weight: 800; 
+        font-size: 1.15rem; 
+        color: var(--primary); 
+        display: block; 
+        margin-bottom: 10px; 
+    }
+
+    .buy-now { 
+        background: var(--accent); 
+        color: var(--secondary); 
+        text-decoration: none; 
+        padding: 8px 18px; 
+        border-radius: 12px; 
+        font-size: 0.8rem; 
+        font-weight: 800; 
+        display: inline-block;
+        transition: transform 0.2s;
+    }
+
+    .buy-now:active {
+        transform: scale(0.9);
+    }
+
+    /* Health & Reviews Cards */
+    .card { 
+        background: white; 
+        padding: 24px; 
+        border-radius: 26px; 
+        margin-bottom: 16px; 
+        box-shadow: var(--shadow); 
+        border: 1px solid rgba(0, 74, 38, 0.03); 
+    }
+
+    .card h4 { 
+        margin-bottom: 8px; 
+        display: flex; 
+        align-items: center; 
+        gap: 12px; 
+        color: var(--secondary);
+        font-size: 1.1rem;
+    }
+
+    .stars { 
+        color: var(--accent); 
+        filter: drop-shadow(0 0 1px rgba(0,0,0,0.1));
+        font-size: 0.9rem; 
+        margin-bottom: 8px; 
+        display: block; 
+    }
+
+    /* Sticky CTA */
+    .footer-cta { 
+        position: fixed; 
+        bottom: 25px; 
+        left: 0; 
+        right: 0; 
+        padding: 0 25px; 
+        z-index: 100; 
+    }
+
+    .main-cta { 
+        background: var(--secondary); 
+        color: white; 
+        text-align: center; 
+        padding: 20px; 
+        border-radius: 22px; 
+        font-weight: 800; 
+        text-decoration: none; 
+        box-shadow: 0 15px 35px rgba(0, 74, 38, 0.25); 
+        display: block; 
+        font-size: 1rem;
+        letter-spacing: 0.5px;
+    }
+
+    .hidden { display: none; }
+</style>
 </head>
 <body>
 
@@ -104,8 +338,8 @@
             </div>
 
             <div class="link-list">
-                <a href="https://wa.me/234XXXXXXXXXX" class="btn btn-primary"><i>📱</i> Order via WhatsApp</a>
-                <div class="btn" onclick="goTo('shop')"><i>🛍️</i> Shop Sizes & Prices</div>
+                <a href="https://wa.me/2349152630473" class="btn btn-primary"><i>📱</i> Order via WhatsApp</a>
+                <div class="btn" onclick="goTo('shop')"><i>😋</i> Kuli Kuli Crisps</div>
                 <div class="btn" onclick="goTo('health')"><i>💪</i> Health Benefits</div>
                 <div class="btn" onclick="goTo('reviews')"><i>⭐</i> Customer Reviews</div>
                 <div class="btn" onclick="goTo('about')"><i>🌍</i> Our Story</div>
@@ -115,30 +349,30 @@
         <section id="shop" class="page">
             <h2 style="margin-bottom:20px">Choose Your Size</h2>
             <div class="shop-item">
-                <div class="item-thumb">🥜</div>
+                <div class="item-thumb"><img src="images/ku1.jpeg" width="100"> </div>
                 <div class="item-info">
                     <h3>The Snack Pack</h3>
                     <p>150g - Handy for your bag.</p>
                     <span class="item-price">₦1,000</span>
-                    <a href="https://wa.me/234XXXXXXXXXX?text=I%20want%20the%20Snack%20Pack" class="buy-now">Add to Order</a>
+                    <a href="https://wa.me/2349152630473?text=I%20want%20the%20Snack%20Pack" class="buy-now">Add to Order</a>
                 </div>
             </div>
             <div class="shop-item">
-                <div class="item-thumb">👜</div>
+                <div class="item-thumb"><img src="images/ku2.jpeg" width="100"></div>
                 <div class="item-info">
                     <h3>The Family Pouch</h3>
                     <p>500g - Reusable zip-lock pack.</p>
                     <span class="item-price">₦3,000</span>
-                    <a href="https://wa.me/234XXXXXXXXXX?text=I%20want%20the%20Family%20Pouch" class="buy-now">Add to Order</a>
+                    <a href="https://wa.me/2349152630473?text=I%20want%20the%20Family%20Pouch" class="buy-now">Add to Order</a>
                 </div>
             </div>
             <div class="shop-item">
-                <div class="item-thumb">📦</div>
+                <div class="item-thumb"><img src="images/ku1.jpeg" width="100"></div>
                 <div class="item-info">
                     <h3>Bulk Wholesale</h3>
                     <p>5kg Carton - Best for events.</p>
                     <span class="item-price">₦25,000</span>
-                    <a href="https://wa.me/234XXXXXXXXXX?text=I%20want%20to%20buy%20Bulk" class="buy-now">Inquire Now</a>
+                    <a href="https://wa.me/2349152630473?text=I%20want%20to%20buy%20Bulk" class="buy-now">Inquire Now</a>
                 </div>
             </div>
         </section>
@@ -185,7 +419,7 @@
     </div>
 
     <div class="footer-cta">
-        <a href="https://wa.me/234XXXXXXXXXX" class="main-cta">WHATSAPP ORDER NOW</a>
+        <a href="https://wa.me/2349152630473" class="main-cta">WHATSAPP ORDER NOW</a>
     </div>
 
     <script>
